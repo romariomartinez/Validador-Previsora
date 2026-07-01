@@ -27,6 +27,33 @@ Luego abre:
 http://127.0.0.1:8765
 ```
 
+## Ejecutar version Vercel/FastAPI local
+
+La entrada para Vercel esta en `api/index.py` y usa `vercel_app.py`.
+
+```powershell
+python -m venv .venv
+& ".\.venv\Scripts\python.exe" -m pip install -r requirements.txt
+& ".\.venv\Scripts\python.exe" -m uvicorn vercel_app:app --host 127.0.0.1 --port 8766
+```
+
+Luego abre:
+
+```text
+http://127.0.0.1:8766
+```
+
+## Desplegar en Vercel
+
+Este repo ya incluye `vercel.json`, `requirements.txt` y `api/index.py`.
+
+```powershell
+npx vercel login
+npx vercel --prod
+```
+
+Nota: Vercel usa almacenamiento temporal para funciones serverless. Los ZIPs generados deben descargarse apenas termina la validacion. Para operacion con historico permanente conviene agregar base de datos/almacenamiento externo.
+
 ## Cajas de archivo
 
 El modo recomendado es `Armador automatico`. Puedes subir archivos sueltos o una carpeta completa. La app clasifica asi:
