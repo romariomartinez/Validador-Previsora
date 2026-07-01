@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Radicador Previsora</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Radicador Previsora</h1>
+        <p>Validacion local de lotes SOAT/AP</p>
+      </div>
+      <div id="statusBadge" class="status-badge idle">Listo</div>
+    </header>
+
+    <main class="workspace">
+      <section class="panel form-panel">
+        <form id="radicacionForm">
+          <div class="mode-tabs" role="tablist" aria-label="Modo de carga">
+            <button type="button" class="mode-tab active" data-mode="auto">Armador automatico</button>
+            <button type="button" class="mode-tab" data-mode="manual">Por cajas</button>
+          </div>
+
+          <div class="section-title">Datos del lote</div>
+          <div class="fields-grid">
+            <label>
+              <span>NIT IPS</span>
+              <input name="nit" type="text" placeholder="999999999" autocomplete="off" />
+            </label>
+            <label>
+              <span>Factura o lote</span>
+              <input name="factura" type="text" placeholder="A999999999" autocomplete="off" />
+            </label>
+            <label>
+              <span>Sucursal</span>
+              <input name="sucursal" type="text" placeholder="Sede principal" autocomplete="off" />
+            </label>
+            <label>
+              <span>Ramo</span>
+              <select name="ramo">
+                <option>SOAT</option>
+                <option>AP</option>
+              </select>
+            </label>
+            <label>
+              <span>Amparo</span>
+              <select name="amparo">
+                <option>Gasto Medico</option>
+                <option>Gasto Transporte</option>
+              </select>
+            </label>
+            <label>
+              <span>Tipo de cuenta</span>
+              <select name="tipo_cuenta">
+                <option>Factura Presentada Por Primera Vez</option>
+                <option>Respuesta a una Objecion</option>
+                <option>Aceptacion</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="check-row">
+            <input name="pdf_furips_furtran" type="checkbox" />
+            <span>PDF Furips/Furtran en soportes</span>
+          </label>
+
+          <div class="section-title">Requisitos</div>
+          <div id="requirements" class="requirements-list"></div>
+
+          <div id="autoUpload" class="upload-section">
+            <div class="section-title">Bandeja de archivos</div>
+            <div class="upload-grid">
+              <label class="drop wide">
+                <span>Archivos del lote</span>
+                <input id="files_AUTO" type="file" multiple />
+                <small id="count_AUTO">Sin archivos</small>
+              </label>
+              <label class="drop wide">
+                <span>Carpeta completa</span>
+                <input id="folder_AUTO" type="file" multiple webkitdirectory directory />
+                <small id="count_FOLDER_AUTO">Sin carpeta</small>
+              </label>
+            </div>
+          </div>
+
+          <div id="manualUpload" class="upload-section hidden">
+            <div class="section-title">Archivos por caja</div>
+            <div class="upload-grid">
+            <label class="drop">
+              <span>Caja CUV</span>
+              <input id="files_CUV" type="file" multiple />
+              <small id="count_CUV">Sin archivos</small>
+            </label>
+            <label class="drop">
+              <span>Caja RIPS JSON</span>
+              <input id="files_RIPS" type="file" multiple />
+              <small id="count_RIPS">Sin archivos</small>
+            </label>
+            <label class="drop">
+              <span>Caja FURIPS</span>
+              <input id="files_FURIPS" type="file" multiple />
+              <small id="count_FURIPS">Sin archivos</small>
+            </label>
+            <label class="drop">
+              <span>Caja FURTRAN</span>
+              <input id="files_FURTRAN" type="file" multiple />
+              <small id="count_FURTRAN">Sin archivos</small>
+            </label>
+            <label class="drop wide">
+              <span>Caja de soportes</span>
+              <input id="files_SOPORTES" type="file" multiple />
+              <small id="count_SOPORTES">Sin archivos</small>
+            </label>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="clearBtn" class="secondary">Limpiar</button>
+            <button type="submit" class="primary">Validar y armar paquetes</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel results-panel">
+        <div class="section-title">Resultado</div>
+        <div id="resultSummary" class="empty-state">Aun no hay validacion.</div>
+        <div id="issues"></div>
+        <div id="downloads"></div>
+        <div id="files"></div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
