@@ -1,16 +1,19 @@
 :root {
-  --bg: #f5f6f8;
+  --bg: #eef4fb;
   --panel: #ffffff;
-  --line: #d9dee7;
-  --text: #17202a;
-  --muted: #667085;
-  --accent: #0f766e;
-  --accent-dark: #115e59;
-  --amber: #b7791f;
+  --line: #c8d7ea;
+  --text: #10233f;
+  --muted: #5e6f86;
+  --brand: #0b4ea2;
+  --brand-2: #1d6fd7;
+  --accent: #1d4ed8;
+  --accent-dark: #153e8a;
+  --cyan: #0e7490;
+  --soft-blue: #e8f1ff;
+  --amber: #a16207;
   --red: #b42318;
-  --blue: #2563eb;
-  --ok: #14804a;
-  --shadow: 0 8px 26px rgba(18, 26, 39, 0.08);
+  --ok: #13795b;
+  --shadow: 0 12px 30px rgba(16, 35, 63, 0.1);
 }
 
 * {
@@ -26,66 +29,68 @@ body {
 }
 
 .topbar {
-  min-height: 76px;
+  min-height: 82px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
-  background: #ffffff;
-  border-bottom: 1px solid var(--line);
+  padding: 18px 26px;
+  background: var(--brand);
+  border-bottom: 4px solid #60a5fa;
+  box-shadow: 0 8px 20px rgba(11, 78, 162, 0.18);
 }
 
 h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 0;
+  color: #ffffff;
 }
 
 .topbar p {
   margin: 4px 0 0;
-  color: var(--muted);
+  color: #d9e8ff;
   font-size: 13px;
 }
 
 .status-badge {
   min-width: 116px;
   text-align: center;
-  padding: 8px 12px;
+  padding: 9px 13px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 700;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 .status-badge.idle {
-  background: #eef2f7;
-  color: #344054;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
 }
 
 .status-badge.ok {
-  background: #eaf7ef;
-  color: var(--ok);
-  border-color: #b7e4c7;
+  background: #dcfce7;
+  color: #166534;
+  border-color: #bbf7d0;
 }
 
 .status-badge.warning {
-  background: #fff7e8;
+  background: #fef3c7;
   color: var(--amber);
-  border-color: #f6d08f;
+  border-color: #fde68a;
 }
 
 .status-badge.error {
-  background: #fff0ee;
+  background: #fee2e2;
   color: var(--red);
-  border-color: #f4b8b1;
+  border-color: #fecaca;
 }
 
 .workspace {
   display: grid;
   grid-template-columns: minmax(360px, 0.92fr) minmax(380px, 1.08fr);
-  gap: 16px;
-  padding: 16px;
+  gap: 18px;
+  padding: 20px;
   max-width: 1500px;
   margin: 0 auto;
 }
@@ -95,7 +100,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
-  padding: 18px;
+  padding: 20px;
   min-width: 0;
 }
 
@@ -103,7 +108,7 @@ h1 {
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
-  color: #344054;
+  color: var(--brand);
   margin: 4px 0 12px;
 }
 
@@ -113,21 +118,22 @@ h1 {
   gap: 8px;
   margin-bottom: 18px;
   padding: 4px;
-  background: #eef2f7;
+  background: #dbeafe;
   border-radius: 8px;
+  border: 1px solid #bfdbfe;
 }
 
 .mode-tab {
   background: transparent;
   border-color: transparent;
-  color: #475467;
+  color: #315d91;
 }
 
 .mode-tab.active {
-  background: #ffffff;
-  color: var(--accent-dark);
-  border-color: #cbd3df;
-  box-shadow: 0 1px 6px rgba(18, 26, 39, 0.08);
+  background: var(--brand);
+  color: #ffffff;
+  border-color: var(--brand);
+  box-shadow: 0 2px 10px rgba(11, 78, 162, 0.18);
 }
 
 .hidden {
@@ -148,7 +154,7 @@ label span {
   display: block;
   font-size: 13px;
   font-weight: 700;
-  color: #344054;
+  color: #244467;
   margin-bottom: 6px;
 }
 
@@ -162,17 +168,18 @@ input[type="text"],
 select {
   width: 100%;
   height: 40px;
-  border: 1px solid #cbd3df;
+  border: 1px solid #b8c9df;
   border-radius: 6px;
   padding: 0 10px;
   color: var(--text);
-  background: #ffffff;
+  background: #fbfdff;
 }
 
 input[type="text"]:focus,
 select:focus {
-  outline: 2px solid rgba(15, 118, 110, 0.22);
+  outline: 2px solid rgba(29, 78, 216, 0.2);
   border-color: var(--accent);
+  background: #ffffff;
 }
 
 .check-row {
@@ -203,13 +210,13 @@ select:focus {
   border: 1px solid var(--line);
   border-left: 4px solid var(--muted);
   border-radius: 6px;
-  padding: 8px 9px;
+  padding: 9px 10px;
   min-height: 58px;
-  background: #fbfcfe;
+  background: #f8fbff;
 }
 
 .req-item.required {
-  border-left-color: var(--accent);
+  border-left-color: var(--brand-2);
 }
 
 .req-item.optional {
@@ -239,17 +246,17 @@ select:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 92px;
-  padding: 12px;
-  border: 1px dashed #aeb8c8;
+  min-height: 98px;
+  padding: 14px;
+  border: 1px dashed #8fb3df;
   border-radius: 8px;
-  background: #fbfcfe;
+  background: #f4f9ff;
   cursor: pointer;
 }
 
 .drop:hover {
   border-color: var(--accent);
-  background: #f1faf8;
+  background: #eaf3ff;
 }
 
 .drop input {
@@ -279,14 +286,15 @@ button {
   min-height: 40px;
   border-radius: 6px;
   border: 1px solid transparent;
-  padding: 0 14px;
+  padding: 0 15px;
   font-weight: 800;
   cursor: pointer;
 }
 
 button.primary {
-  background: var(--accent);
+  background: var(--brand);
   color: #ffffff;
+  box-shadow: 0 5px 14px rgba(11, 78, 162, 0.2);
 }
 
 button.primary:hover {
@@ -295,8 +303,12 @@ button.primary:hover {
 
 button.secondary {
   background: #ffffff;
-  color: #344054;
-  border-color: #cbd3df;
+  color: var(--brand);
+  border-color: #9fc0e6;
+}
+
+button.secondary:hover {
+  background: #f2f7ff;
 }
 
 button:disabled {
@@ -305,7 +317,7 @@ button:disabled {
 }
 
 .empty-state {
-  border: 1px dashed #b6c0ce;
+  border: 1px dashed #92afd2;
   border-radius: 8px;
   color: var(--muted);
   padding: 20px;
@@ -326,13 +338,14 @@ button:disabled {
 .metric {
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 10px;
-  background: #fbfcfe;
+  padding: 11px;
+  background: #f8fbff;
 }
 
 .metric strong {
   display: block;
   font-size: 20px;
+  color: var(--brand);
 }
 
 .metric span {
@@ -351,7 +364,7 @@ button:disabled {
   padding: 10px 12px;
   margin-bottom: 8px;
   border: 1px solid var(--line);
-  background: #fbfcfe;
+  background: #f8fbff;
   font-size: 13px;
   line-height: 1.35;
 }
@@ -367,8 +380,8 @@ button:disabled {
 }
 
 .issue.info {
-  border-color: #b6cdfc;
-  background: #eff5ff;
+  border-color: #9cc5ff;
+  background: #edf6ff;
 }
 
 .issue.blocked {
@@ -393,11 +406,12 @@ button:disabled {
   margin-bottom: 8px;
   color: var(--text);
   text-decoration: none;
-  background: #fbfcfe;
+  background: #f8fbff;
 }
 
 .download-link:hover {
-  border-color: var(--accent);
+  border-color: var(--brand-2);
+  background: #eef6ff;
 }
 
 .download-link small {
@@ -419,8 +433,8 @@ td {
 }
 
 th {
-  color: #344054;
-  background: #f7f9fc;
+  color: #244467;
+  background: #eaf3ff;
 }
 
 @media (max-width: 960px) {
